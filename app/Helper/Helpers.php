@@ -21,5 +21,21 @@ function eticket_stations(){
             'lon' => -92.34334,
         ],
     ];
+}
 
+function eticket_trains(){
+    return [
+      [
+          'name' => 'Suborno Express',
+          'date' => '2022-01-06',
+          'home_station_id' => 1,
+          'start_time' => '06:00'
+      ],
+      [
+          'name' => 'Chitra Express',
+          'date' => '2022-01-06',
+          'home_station_id' => 1,
+          'start_time' => '11:00'
+      ],
+    ];
 }

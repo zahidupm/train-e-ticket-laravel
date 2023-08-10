@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Station;
+use App\Models\Train;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -28,6 +29,15 @@ class DatabaseSeeder extends Seeder
             $station->lat = $item['lat'];
             $station->lon = $item['lon'];
             $station->save();
+        }
+
+        foreach (eticket_trains() as $item){
+            $train = new Train();
+            $train->name = $item['name'];
+            $train->date = date('Y-m-d', strtotime($item['date']));
+            $train->home_station_id = $item['home_station_id'];
+            $train->start_time = $item['start_time'];
+            $train->save();
         }
     }
 }

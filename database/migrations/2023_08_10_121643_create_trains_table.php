@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->date('date');
             $table->foreignId('home_station_id')->constrained('stations');
+            $table->time('start_time');
             $table->timestamps();
         });
     }
