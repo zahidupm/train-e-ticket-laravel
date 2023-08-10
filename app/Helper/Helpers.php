@@ -27,15 +27,19 @@ function eticket_trains(){
     return [
       [
           'name' => 'Suborno Express',
-          'date' => '2022-01-06',
+          'date' => '2023-08-12',
           'home_station_id' => 1,
           'start_time' => '06:00'
       ],
       [
           'name' => 'Chitra Express',
-          'date' => '2022-01-06',
+          'date' => '2023-08-12',
           'home_station_id' => 1,
           'start_time' => '11:00'
       ],
     ];
+}
+
+function eticket_bogis(){
+    return ['KA', 'KHA'];
 }

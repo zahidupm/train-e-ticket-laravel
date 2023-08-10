@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->foreignId('train_id');
-            $table->foreignId('style')->constrained('trains')->default(1);
+            $table->foreignId('style')->default(1)->constrained('trains');
             $table->timestamps();
         });
     }
