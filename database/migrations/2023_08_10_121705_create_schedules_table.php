@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('schedules', function (Blueprint $table) {
             $table->id();
             $table->foreignId('train_id');
-            $table->foreignId('station_id');
+            $table->foreignId('station_id')->constrained('stations');
             $table->time('time');
             $table->float('ac_b_price')->nullable();
             $table->float('ac_s_price')->nullable();
