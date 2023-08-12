@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.single-seat:hover form { display: block}
+
+.eticket-btn {
+    @apply px-4 py-2 inline-block bg-black text-white rounded;
+}
+.eticket-input{
+    @apply px-4 py-2 w-full rounded border;
+}
+.eticket-label {
+    @apply px-4 py-2 uppercase cursor-pointer;
+}
