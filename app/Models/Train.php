@@ -8,8 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Train extends Model
 {
     use HasFactory;
+    protected $guarded = ['id', 'created_at', 'updated_at'];
 
-    public function bogis(){
+    public function bogis() {
         return $this->hasMany(Bogi::class, 'train_id');
     }
 }

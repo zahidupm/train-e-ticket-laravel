@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('bogis', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->foreignId('train_id');
+            $table->foreignId('train_id')->constrained('trains');
             $table->foreignId('style')->default(1)->constrained('trains');
             $table->timestamps();
         });

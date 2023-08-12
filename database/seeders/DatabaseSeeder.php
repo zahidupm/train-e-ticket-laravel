@@ -34,28 +34,29 @@ class DatabaseSeeder extends Seeder
             $station->save();
         }
 
-        foreach (eticket_trains() as $item){
+        foreach (eticket_trains() as $item) {
             $train = new Train();
             $train->name = $item['name'];
             $train->date = date('Y-m-d', strtotime($item['date']));
             $train->home_station_id = $item['home_station_id'];
-            $train->start_time = $item['start_time'];
+            $train->start_time = date('h:i:s', strtotime($item['start_time']));
+
             $train->save();
-        }
 
-        foreach (eticket_bogis() as $item){
-            $bogi = new Bogi();
-            $bogi->name = $item;
-            $bogi->train_id = $train->id;
-            $bogi->save();
+            foreach (eticket_bogis() as $bogiItem) {
+                $bogi = new Bogi();
+                $bogi->name = $bogiItem;
+                $bogi->train_id = $train->id;
+                $bogi->save();
 
-            for($i=0;$i<=30; $i++){
-                $seat = new Seat();
-                $seat->name = $bogi->name . '-' . $i;
-                $seat->type = rand(0, 1);
-                $seat->bogi_id = $bogi->id;
-                $seat->train_id = $train->id;
-                $seat->save();
+                for ($i = 0; $i <= 30; $i++) {
+                    $seat = new Seat();
+                    $seat->name = $bogi->name . '-' . $i;
+                    $seat->type = rand(0,1);
+                    $seat->bogi_id = $bogi->id;
+                    $seat->train_id = $train->id;
+                    $seat->save();
+                }
             }
         }
 
