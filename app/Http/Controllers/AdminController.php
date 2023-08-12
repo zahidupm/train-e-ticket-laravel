@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Bogi;
 use App\Models\Train;
 use Illuminate\Http\Request;
 
@@ -19,5 +20,11 @@ class AdminController extends Controller
     public function editTrain($id) {
         $train = Train::findOrFail($id);
         return view('train.edit', ['train' => $train]);
+    }
+
+    public function deleteBogi($id){
+        $bogi = Bogi::findOrFail($id);
+        $bogi->delete();
+        return back();
     }
 }

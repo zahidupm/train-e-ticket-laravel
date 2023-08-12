@@ -23,6 +23,7 @@ Route::middleware(['auth'])->group(function () {
    Route::get('/', [AdminController::class, 'dashboard'])->name('dashboard');
    Route::get('/trains', [AdminController::class, 'trains'])->name('trains');
    Route::get('/edit-train/{id}', [AdminController::class, 'editTrain'])->name('edit-train');
+   Route::post('/delete-bogi/{id}', [AdminController::class, 'deleteBogi'])->name('delete-bogi');
 });
 
 Route::middleware('auth')->group(function () {
