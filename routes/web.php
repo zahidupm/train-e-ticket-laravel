@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\TrainController;
+use App\Http\Controllers\StationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,10 @@ Route::middleware(['auth'])->group(function () {
    Route::post('/save-train', [TrainController::class, 'saveTrain'])->name('save-train');
    Route::get('/edit-train/{id}', [TrainController::class, 'editTrain'])->name('edit-train');
    Route::post('/delete-bogi/{id}', [TrainController::class, 'deleteBogi'])->name('delete-bogi');
+
+   Route::get('/list-stations', [StationController::class, 'listStation'])->name('list-stations');
+   Route::get('/add-station', [StationController::class, 'addStation'])->name('add-station');
+   Route::post('/save-station', [StationController::class, 'saveStation'])->name('save-station');
 });
 
 Route::middleware('auth')->group(function () {
